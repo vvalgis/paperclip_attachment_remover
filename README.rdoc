@@ -1,0 +1,42 @@
+= PaperclipAttachmentRemover
+
+This plugin used for delete attachment created by paperclip.
+It provides two methods for this:
+
++attachment_remover_observe+::
+used for to point out that attachment attributes needs to be observed for removing. You can point out multiple attributes with paperclip attachment
+
++attachment_remover_name_for+::
+used for getting correct form field name (usually checkbox) that should trigger attachment removing
+
+== Installation
+
+  sudo gem install paperclip_attachment_remover
+
+== Usage
+
+In your model:
+
+  SomeThing << ActiveRecord::Base
+
+    has_attachment :icon
+  
+    attachment_remover_observe :icon
+  
+  end
+
+In your update form:
+
+  form_for @something do |f|
+    
+    f.label :icon, 'Icon picture'
+    f.file_field :icon
+    
+    f.label attachment_remover_name_for(:icon), 'Remove existing icon picture'
+    f.check_box attachment_remover_name_for(:icon)
+    
+  end
+
+
+
+Copyright (c) 2010 v.valgis, released under the MIT license
