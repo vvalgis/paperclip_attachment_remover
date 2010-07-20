@@ -11,7 +11,7 @@ used for getting correct form field name (usually checkbox) that should trigger 
 
 == Installation
 
-  sudo gem install paperclip_attachment_remover
+  sudo gem install PaperclipAttachmentRemover
 
 == Usage
 
